@@ -1,5 +1,7 @@
 ![Banner](./assets/readme-banner.png)
 
+![Demo presentation gif](./assets/demo-presentation.gif)
+
 # VsCode Test Pilot
 
 This extension permits to easily create test boilerplate for given functions.
