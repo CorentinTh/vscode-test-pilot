@@ -37,8 +37,13 @@ class FunctionNameCodeActionProvider implements vscode.CodeActionProvider {
 }
 
 export function activate(context: vscode.ExtensionContext) {
-  context.subscriptions.push(createTestPilotCodeActionProvider({ language: 'typescript' }));
-  context.subscriptions.push(createTestPilotCodeActionProvider({ language: 'javascript' }));
+  const disposable = vscode.languages.registerCodeActionsProvider(
+    ['javascript', 'typescript'].map(language => ({ language, scheme: 'file' })),
+    new FunctionNameCodeActionProvider(),
+    { providedCodeActionKinds: [vscode.CodeActionKind.QuickFix] },
+  );
+
+  context.subscriptions.push(disposable);
 
   vscode.commands.registerCommand(commandName, async ({ functionName, sourceFilePath }: { functionName: string; sourceFilePath: string }) => {
     const vscodeConfig = vscode.workspace.getConfiguration('testPilot');
@@ -56,11 +61,5 @@ export function activate(context: vscode.ExtensionContext) {
     });
 
     await openFileAtLastLine({ filePath: testFilePath });
-  });
-}
-
-function createTestPilotCodeActionProvider({ language }: { language: string }) {
-  return vscode.languages.registerCodeActionsProvider(language, new FunctionNameCodeActionProvider(), {
-    providedCodeActionKinds: [vscode.CodeActionKind.QuickFix],
   });
 }
