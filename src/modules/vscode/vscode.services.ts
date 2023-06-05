@@ -9,5 +9,8 @@ async function openFileAtLastLine({ filePath }: { filePath: string }) {
   const position = new vscode.Position(lastLine, 0);
   const selection = new vscode.Selection(position, position);
 
-  await vscode.window.showTextDocument(document, { selection });
+  await vscode.window.showTextDocument(document, {
+    selection,
+    viewColumn: vscode.ViewColumn.Beside,
+  });
 }
