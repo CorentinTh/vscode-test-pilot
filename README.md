@@ -1,10 +1,18 @@
-![Banner](./assets/readme-banner.png)
+![Banner](https://github.com/CorentinTh/vscode-test-pilot/blob/main/assets/readme-banner.png?raw=1)
 
-![Demo presentation gif](./assets/demo-presentation.gif)
+![Demo presentation gif](https://github.com/CorentinTh/vscode-test-pilot/blob/main/assets/demo-presentation.gif?raw=1)
 
 # VsCode Test Pilot
 
 This extension permits to easily create test boilerplate for given functions.
+
+Find the extension on the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=cthmsst.test-pilot).
+
+## Features
+- Trigger the refactor on a function name
+- Create test boilerplate for a given function
+- Update tests when a test file is already present
+
 
 ## Configuration
 
