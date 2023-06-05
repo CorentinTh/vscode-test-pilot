@@ -7,8 +7,20 @@
     "vscode": "^1.78.0"
   },
   "categories": [
-    "Other"
+    "Testing"
   ],
+  "keywords": [
+    "javascript",
+    "typescript",
+    "test",
+    "generate",
+    "template",
+    "mocha",
+    "jest",
+    "ava",
+    "vitest"
+  ],
+  "license": "MIT",
   "icon": "assets/test-pilot-extension-icon.png",
   "activationEvents": [
     "onLanguage:javascript",
@@ -18,6 +30,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/CorentinTh/vscode-test-pilot"
+  },
+  "bugs": {
+    "url": "https://github.com/CorentinTh/vscode-test-pilot/issues"
   },
   "contributes": {
     "configuration": {
