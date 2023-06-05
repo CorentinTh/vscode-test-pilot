@@ -1,0 +1,75 @@
+{
+  "name": "test-pilot",
+  "displayName": "Test Pilot",
+  "description": "Automatically generate test base templates for JavaScript and TypeScript functions.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.78.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "assets/test-pilot-extension-icon.png",
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:typescript"
+  ],
+  "publisher": "cthmsst",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CorentinTh/vscode-test-pilot"
+  },
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "testPilot",
+      "properties": {
+        "testPilot.testFileExtensionPrefix": {
+          "type": "string",
+          "default": "test",
+          "description": "The file extension for test files."
+        },
+        "testPilot.addExtensionInImport": {
+          "type": "boolean",
+          "default": false,
+          "description": "Add the file extension in the import statement."
+        },
+        "testPilot.extraImportsForNewTestFiles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Extra imports to add in new test files, e.g. `import { expect } from 'chai';`"
+        }
+      }
+    }
+  },
+  "main": "./dist/index.js",
+  "scripts": {
+    "vscode:prepublish": "pnpm clean && pnpm build",
+    "dev": "pnpm build --watch",
+    "lint": "eslint src --ext ts",
+    "test": "vitest src/**",
+    "build": "esbuild ./src/extension.ts --bundle --outfile=dist/index.js --external:vscode --format=cjs --platform=node --minify",
+    "package": "vsce package --no-dependencies",
+    "publish": "vsce publish --no-dependencies",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.39.5",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.78.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
+    "@vscode/test-electron": "^2.3.0",
+    "@vscode/vsce": "^2.19.0",
+    "esbuild": "^0.17.19",
+    "eslint": "^8.39.0",
+    "glob": "^8.1.0",
+    "typescript": "^5.0.4",
+    "vitest": "^0.31.4"
+  }
+}

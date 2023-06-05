@@ -1,0 +1,11 @@
+{
+  "root": true,
+  "extends": ["@antfu"],
+  "ignorePatterns": ["out", "dist", "**/*.d.ts"],
+  "rules": {
+    "curly": ["error", "all"],
+    "@typescript-eslint/semi": ["error", "always"],
+    "@typescript-eslint/no-use-before-define": ["error", { "allowNamedExports": true, "functions": false }],
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"]
+  }
+}
