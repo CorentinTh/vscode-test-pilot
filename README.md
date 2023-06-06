@@ -36,3 +36,7 @@ You can configure the extension with the following settings:
 Coded with love by [Corentin Thomasset](https://github.com/CorentinTh).
 
 Green chemistry icon used in the logo created by [Fazrian Zahrawani - Flaticon](https://www.flaticon.com/free-icon/green-chemistry_8181284?term=green+chemistry&page=1&position=20&origin=search&related_id=8181284 'Green chemistry icons')
+
+## License
+
+Published under the [MIT License](./LICENSE.md).
