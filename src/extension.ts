@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { isFunctionName } from './modules/language/language.models';
+import { getFunctionsNames, isFunctionName } from './modules/language/language.models';
 import type { TestPilotConfig } from './modules/test-pilot/test-pilot.types';
 import { createTestForFunction } from './modules/test-pilot/test-pilot.usecases';
 import { openFileAtLastLine } from './modules/vscode/vscode.services';
@@ -10,13 +10,16 @@ class FunctionNameCodeActionProvider implements vscode.CodeActionProvider {
   provideCodeActions(document: vscode.TextDocument, range: vscode.Range | vscode.Selection): vscode.ProviderResult<(vscode.Command | vscode.CodeAction)[]> {
     const functionNameRange = document.getWordRangeAtPosition(range.start);
     const functionName = document.getText(functionNameRange);
+    const editorLine = document.lineAt(range.start.line).text;
+
+    getFunctionsNames({ editorLine });
 
     if (!functionNameRange) {
       return;
     }
 
     const cursorIsOnFunctionName = isFunctionName({
-      editorLine: document.lineAt(range.start.line).text,
+      editorLine,
       maybeFunctionName: functionName,
     });
 
